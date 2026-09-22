@@ -192,9 +192,13 @@ h1, h2, h3, p, small, .btn {
 }
 .header-inner {
   min-height: var(--header-height);
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 24px;
+}
+.header-inner > .brand {
+  justify-self: start;
 }
 .brand {
   display: inline-flex;
@@ -230,20 +234,11 @@ h1, h2, h3, p, small, .btn {
   letter-spacing: 6px;
 }
 .main-nav {
-  position: absolute;
-  top: 100%;
-  right: max(32px, calc((100% - 1500px) / 2));
-  display: none;
-  width: min(360px, 100%);
-  max-height: calc(100vh - var(--header-height));
-  max-height: calc(100dvh - var(--header-height));
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: 16px 24px 24px;
-  flex-direction: column;
-  gap: 4px;
-  background: var(--navy);
-  box-shadow: 0 18px 28px rgba(8, 41, 59, 0.18);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-self: center;
+  gap: 16px;
   font-size: 15px;
   font-weight: 500;
 }
@@ -251,7 +246,8 @@ h1, h2, h3, p, small, .btn {
   display: flex;
 }
 .header-cta {
-  margin-left: auto;
+  flex-shrink: 0;
+  justify-self: end;
   order: 1;
 }
 .main-nav a,
@@ -292,10 +288,16 @@ h1, h2, h3, p, small, .btn {
 .main-nav a.active::after,
 .footer-main nav a:hover::after {
   opacity: 1;
+}
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  transform: translateX(-50%) translateY(1px);
+}
+.footer-main nav a:hover::after {
   transform: translateX(-50%) translateY(1px);
 }
 .menu-toggle {
-  display: block;
+  display: none;
   flex: 0 0 48px;
   order: 2;
   width: 48px;
@@ -488,6 +490,13 @@ h2 {
   z-index: 2;
   width: min(84%, 700px);
   filter: drop-shadow(0 26px 22px rgba(17, 43, 58, 0.1));
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  /* The PNG has transparent padding below the coat (last visible row: 1225/1350). */
+  -webkit-mask-size: 100% 90.8%;
+  mask-size: 100% 90.8%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 .enso {
   position: absolute;

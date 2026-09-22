@@ -1,0 +1,356 @@
+{
+  "results": [
+    {
+      "file": "index.html",
+      "width": 320,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "index.html",
+      "width": 768,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "index.html",
+      "width": 1024,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "index.html",
+      "width": 1120,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "index.html",
+      "width": 1121,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1280,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1281,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1366,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1441,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1512,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "index.html",
+      "width": 1920,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 320,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "estetica.html",
+      "width": 390,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "estetica.html",
+      "width": 768,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1024,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1120,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1121,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1280,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1281,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1366,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1440,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1441,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1512,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "estetica.html",
+      "width": 1920,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 320,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 390,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 768,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1024,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1120,
+      "compact": true,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "column"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1121,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1280,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1281,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1366,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1440,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1441,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1512,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1920,
+      "compact": false,
+      "out": [],
+      "overlap": false,
+      "overflow": 0,
+      "direction": "row"
+    }
+  ],
+  "errors": []
+}

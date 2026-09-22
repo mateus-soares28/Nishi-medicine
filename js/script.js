@@ -26,14 +26,20 @@ window.setTimeout(finishPreloader, preloaderDuration);
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
+const compactNavigation = window.matchMedia("(max-width: 1120px)");
 
 const setMenuOpen = (isOpen, restoreFocus = false) => {
     if (!menuToggle || !mainNav) return;
+    isOpen = isOpen && compactNavigation.matches;
     mainNav.classList.toggle("open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-    if (restoreFocus) menuToggle.focus({ preventScroll: true });
+    if (restoreFocus && compactNavigation.matches) menuToggle.focus({ preventScroll: true });
 };
+
+compactNavigation.addEventListener("change", () => {
+    setMenuOpen(false);
+});
 
 menuToggle?.addEventListener("click", () => {
     setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");

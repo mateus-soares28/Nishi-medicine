@@ -1,0 +1,137 @@
+{
+  "results": [
+    {
+      "file": "index.html",
+      "width": 390,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "index.html",
+      "width": 768,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "index.html",
+      "width": 1366,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "estetica.html",
+      "width": 390,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "estetica.html",
+      "width": 768,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "estetica.html",
+      "width": 1366,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "estetica.html",
+      "width": 1440,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 390,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 768,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1366,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1440,
+      "overflow": 0,
+      "alignment": {
+        "padding": "8px",
+        "left": "8px",
+        "transform": "matrix(1, 0, 0, 1, 0, 1)",
+        "opacity": "1"
+      }
+    }
+  ],
+  "errors": []
+}
