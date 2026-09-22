@@ -1,400 +1,270 @@
-@media (max-width: 1360px) {
-    .container {
-        width: min(100% - 72px, 1180px);
-    }
-
-    .header-inner {
-        gap: 26px;
-    }
-
-    .main-nav {
-        gap: 28px;
-    }
-
-    .brand-mark {
-        width: 68px;
-        height: 68px;
-        font-size: 44px;
-    }
-
-    .brand-text strong {
-        font-size: 30px;
-        letter-spacing: 12px;
-    }
-
-    .brand-text small {
-        font-size: 12px;
-        letter-spacing: 6px;
-    }
-
-    .enso-large {
-        width: min(92%, 600px);
-        height: min(92%, 600px);
-    }
-
-    .treatments-grid,
-    .clinic-grid,
-    .team-grid,
-    .reviews-grid,
-    .contact-grid {
-        gap: 46px;
-    }
-
-    .doctor-list {
-        gap: 24px;
-    }
+﻿/* Shared sizing protects intermediate widths and browser zoom. */
+.hero-visual .enso-large {
+    inset: auto 8% 8% auto;
+    width: 78%;
+    height: auto;
+    aspect-ratio: 1;
+}
+.hero-visual .enso-soft {
+    width: 72%;
+    height: 90%;
+    right: 14%;
+    bottom: 0;
+}
+.enso-aesthetic,
+.enso-therapy-page {
+    width: 74%;
+    height: auto;
+    aspect-ratio: 1;
+}
+.hero-visual img,
+.aesthetic-hero-visual img,
+.therapy-page-visual img {
+    height: auto;
+}
+.aesthetic-contact-inner > .btn,
+.therapy-page-contact-inner > .btn {
+    flex-shrink: 0;
 }
 
+/* Notebooks and MacBooks: room for text and full-height content. */
+@media (max-width: 1440px) {
+    .container { width: min(calc(100% - 64px), 1280px); }
+    .brand-mark { width: 64px; height: 64px; }
+    .brand-text strong { font-size: 28px; letter-spacing: 10px; }
+    .brand-text small { font-size: 10px; letter-spacing: 4px; }
+    .hero-grid,
+    .aesthetic-hero-grid,
+    .therapy-page-hero-grid,
+    .treatments-grid,
+    .clinic-grid,
+    .contact-grid { gap: 32px; }
+    .team-grid,
+    .reviews-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+    .team-intro,
+    .reviews-grid > aside { max-width: 760px; }
+    .aesthetic-grid,
+    .therapy-page-grid { gap: 24px; }
+    .footer-main { gap: 24px; }
+    .footer-main nav {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        gap: 12px 28px;
+    }
+    .footer-main > .btn { margin-left: auto; }
+    .footer-line { width: calc(100% - 64px); }
+}
+
+/* Tablets, including landscape: two cards per row and stacked introductions. */
 @media (max-width: 1120px) {
-    :root {
-        --header-height: 92px;
-    }
-
-    .header-inner {
-        min-height: var(--header-height);
-    }
-
-    .menu-toggle {
-        display: block;
-        margin-left: auto;
-    }
-
-    .main-nav {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: var(--header-height);
-        display: none;
-        padding: 18px 36px 28px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        background: var(--navy);
-    }
-
-    .main-nav.open {
-        display: flex;
-    }
-
-    .header-cta {
-        display: none;
-    }
-
+    :root { --header-height: 88px; }
+    .container { width: calc(100% - 48px); }
     .hero,
     .treatments,
     .clinic,
     .team,
     .reviews,
     .contact {
-        height: auto;
-        max-height: none;
-        min-height: auto;
+        min-height: 0;
         display: block;
-        overflow: visible;
     }
-
-    .hero-grid {
-        height: auto;
-        max-height: none;
-        min-height: auto;
-    }
-
     .hero-grid,
     .clinic-grid,
     .contact-grid,
-    .team-grid,
-    .reviews-grid {
-        grid-template-columns: 1fr;
+    .aesthetic-hero-grid,
+    .therapy-page-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        gap: 40px;
     }
-
-    .hero-grid {
-        padding-top: 46px;
-        padding-bottom: 0;
-    }
-
-    .hero-visual {
-        min-height: 520px;
-    }
-
-    .hero-visual::before,
-    .dot {
-        display: none;
-    }
-
-    .hero-visual img {
-        width: min(62vw, 520px);
-        margin-bottom: 0;
-        transform: scale(1.02);
-    }
-
-    .treatments-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 34px;
-    }
-
-    .therapy-more {
-        grid-column: 1 / -1;
-        max-width: 560px;
+    .hero-grid,
+    .aesthetic-hero-grid,
+    .therapy-page-hero-grid { padding-block: 48px; }
+    .hero-copy,
+    .aesthetic-hero-copy,
+    .therapy-page-copy { max-width: 760px; }
+    .hero-visual,
+    .aesthetic-hero-visual,
+    .therapy-page-visual {
+        width: min(100%, 560px);
+        min-height: 0;
         margin-inline: auto;
+    }
+    .hero-visual img {
+        width: 80%;
+        max-height: 540px;
+        object-fit: contain;
+    }
+    .aesthetic-hero-visual img,
+    .therapy-page-visual img {
         width: 100%;
+        max-height: 500px;
     }
-
-    .team-grid,
-    .reviews-grid {
-        align-items: start;
-    }
-
-    .team-intro h2,
-    .contact h2 {
-        max-width: none;
-    }
-
-    .review-track {
-        grid-template-columns: 1fr;
-    }
-
-    .review-card {
-        min-height: auto;
-    }
-
-    .footer-main {
-        flex-wrap: wrap;
-    }
-
-    .footer-main nav {
-        order: 3;
+    .dot { display: none; }
+    .treatments-grid,
+    .aesthetic-grid,
+    .therapy-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .therapy-more,
+    .aesthetic-card-featured {
+        grid-column: 1 / -1;
         width: 100%;
-        margin-left: 0;
-        flex-wrap: wrap;
+        max-width: 520px;
+        margin-inline: auto;
     }
-
-    .footer-line {
-        width: min(100% - 72px, 900px);
-        letter-spacing: 5px;
+    .clinic-collage {
+        width: min(100%, 760px);
+        margin-inline: auto;
     }
-}
-
-@media (max-width: 560px) {
-    .preloader-brand img {
-        width: 66px;
-        height: 66px;
+    .contact-items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .contact-form {
+        width: 100%;
+        max-width: 760px;
+        margin-inline: auto;
     }
-    .preloader-brand {
-        gap: 13px;
+    .aesthetic-contact-inner,
+    .therapy-page-contact-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 28px;
     }
-    .preloader-brand strong {
-        font-size: 27px;
-        letter-spacing: 8px;
-    }
-    .preloader-brand small {
-        font-size: 8px;
-        letter-spacing: 3.5px;
-    }
-    .preloader-skip {
-        right: 20px;
-        bottom: 20px;
-    }
+    .doctor-card { padding-inline: 18px; min-height: 0; }
+    .doctor-photo { height: 260px; margin-inline: -8px; }
+    .review-track { grid-template-columns: minmax(0, 1fr); }
+    .review-card { min-height: 0; }
 }
 
 @media (max-width: 760px) {
+    :root { --header-height: 80px; }
+    .container { width: calc(100% - 40px); }
+    .header-inner { gap: 12px; }
+    .brand { gap: 10px; }
+    .brand-mark { width: 48px; height: 48px; flex-shrink: 0; }
+    .brand-text { gap: 6px; }
+    .brand-text strong { font-size: 24px; letter-spacing: 8px; }
+    .brand-text small { font-size: 8px; letter-spacing: 2.5px; }
+    .menu-toggle { margin-left: auto; }
+    .main-nav {
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding-inline: 20px;
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+    .header-cta { display: none; }
     .section-cream,
     .section-bg {
-        background-size: 100% 100%, 100% auto;
+        background-size: 100% 100%, auto 100%;
         background-position: center, center bottom;
-        background-repeat: no-repeat;
     }
-
-    .container {
-        width: min(100% - 32px, 560px);
-    }
-
-    .site-header {
-        position: sticky;
-    }
-
-    .brand {
-        gap: 12px;
-    }
-
-    .brand-mark {
-        width: 52px;
-        height: 52px;
-        font-size: 34px;
-    }
-
-    .brand-text {
-        gap: 4px;
-    }
-
-    .brand-text strong {
-        font-size: 22px;
-        letter-spacing: 8px;
-    }
-
-    .brand-text small {
-        font-size: 9px;
-        letter-spacing: 4px;
-    }
-
     .hero-grid,
     .section-center,
     .clinic-grid,
     .team-grid,
     .reviews-grid,
-    .contact-grid {
-        padding: 52px 0;
+    .contact-grid,
+    .aesthetic-hero-grid,
+    .aesthetic-contact-inner,
+    .therapy-page-hero-grid,
+    .therapy-page-contact-inner {
+        padding-block: 48px;
+        gap: 32px;
     }
-
-    h1,
-    h2 {
-        font-size: clamp(48px, 14vw, 68px);
-        line-height: .95;
+    h1 { font-size: clamp(42px, 10.5vw, 68px); line-height: 1; }
+    h2,
+    .treatments h2,
+    .clinic h2,
+    .team-intro h2,
+    .reviews-grid > aside h2,
+    .contact h2,
+    .aesthetic-contact h2,
+    .therapy-page-contact h2 {
+        font-size: clamp(36px, 8.5vw, 56px);
+        line-height: 1.05;
     }
-
     .lead,
     .section-text,
-    .section-subtitle {
-        font-size: 18px;
-        line-height: 1.55;
-    }
-
-    .lead {
-        margin: 32px 0 36px;
-    }
-
-    .eyebrow {
-        gap: 14px;
-        margin-bottom: 18px;
-        font-size: 12px;
-        letter-spacing: 4px;
-    }
-
-    .eyebrow span {
-        width: 44px;
-    }
-
-    .actions,
-    .footer-main,
-    .footer-main nav {
-        gap: 16px;
-    }
-
-    .btn {
-        width: 100%;
-        min-height: 52px;
-        padding: 0 22px;
-        font-size: 14px;
-    }
-
-    .whatsapp-float {
-        right: 16px;
-        bottom: 16px;
-        width: 56px;
-        height: 56px;
-    }
-
-    .whatsapp-float img {
-        width: 32px;
-        height: 32px;
-    }
-
-    .hero-visual {
-        min-height: 360px;
-    }
-
-    .hero-visual img {
-        width: min(70vw, 320px);
-        transform: scale(1);
-    }
-
-    .enso-large {
-        width: 360px;
-        height: 360px;
-        right: 50%;
-        transform: translateX(50%) rotate(-28deg);
-    }
-
-    .enso-soft {
-        width: 260px;
-        height: 330px;
-        right: 50%;
-        transform: translateX(50%);
-    }
-
-    .treatments-grid,
+    .section-subtitle { font-size: 17px; line-height: 1.6; }
+    .lead { margin: 24px 0 28px; }
+    .eyebrow { gap: 10px; font-size: 10px; letter-spacing: 2.5px; }
+    .eyebrow span { width: 24px; }
+    .actions { gap: 14px; }
+    .btn { min-height: 52px; padding: 12px 20px; font-size: 14px; }
     .doctor-list,
-    .features,
-    .contact-items,
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .therapy-info h3 {
-        display: block;
-        margin: 18px 0 0;
-        font-size: 32px;
-    }
-
-    .therapy-more {
-        min-height: 330px;
-        padding: 42px 24px;
-    }
-
-    .clinic-collage {
-        height: 560px;
-        min-height: 0;
-        margin-top: -20px;
-    }
-
-    .photo-reception {
-        left: 0;
-        width: 72%;
-        height: 270px;
-    }
-
-    .photo-room {
-        width: 50%;
-        height: 230px;
-        top: 190px;
-    }
-
-    .photo-detail {
-        width: 76%;
-        height: 220px;
-        left: 10%;
-        bottom: 20px;
-    }
-
-    .collage-toggle {
-        right: 5%;
-        bottom: 0;
-    }
-
-    .doctor-card {
-        min-height: auto;
-    }
-
+    .contact-items { grid-template-columns: minmax(0, 1fr); }
     .doctor-photo {
-        height: 300px;
+        height: clamp(260px, 65vw, 420px);
+        background-position: center 30%;
     }
-
-    .review-area {
-        overflow: hidden;
+    .therapy-info h3 { display: block; margin: 18px 0 0; font-size: 32px; }
+    .aesthetic-card-content,
+    .therapy-page-card-content { padding: 22px 20px 24px; }
+    .aesthetic-card h3,
+    .therapy-page-card h3 { font-size: 30px; line-height: 1.05; }
+    .contact-form { padding: 28px 20px; }
+    .contact-form :is(input, select, textarea) { font-size: 16px; }
+    .whatsapp-float {
+        right: max(16px, env(safe-area-inset-right));
+        bottom: max(16px, env(safe-area-inset-bottom));
+        width: 52px;
+        height: 52px;
     }
-
-    .contact-form {
-        padding: 34px 18px;
-    }
-
-    .site-footer .brand,
-    .footer-main .btn {
-        width: 100%;
-    }
-
+    .whatsapp-float img { width: 30px; height: 30px; }
+    .site-footer { padding-bottom: 88px; }
     .footer-line {
-        width: min(100% - 32px, 520px);
+        width: calc(100% - 40px);
         gap: 12px;
-        letter-spacing: 3px;
-        text-align: center;
+        line-height: 1.8;
+        letter-spacing: 2px;
     }
+}
+
+/* Phones: one column, comfortable touch targets, no fixed-width artwork. */
+@media (max-width: 599px) {
+    .container { width: calc(100% - 32px); }
+    .brand-mark { width: 40px; height: 40px; }
+    .brand-text strong { font-size: 22px; letter-spacing: 7px; }
+    .brand-text small { font-size: 7px; letter-spacing: 2px; }
+    .hero-visual,
+    .aesthetic-hero-visual,
+    .therapy-page-visual { max-width: 420px; }
+    .actions,
+    .footer-main { gap: 16px; }
+    .btn,
+    .site-footer .brand { width: 100%; }
+    .treatments-grid,
+    .features,
+    .form-row,
+    .aesthetic-grid,
+    .therapy-page-grid { grid-template-columns: minmax(0, 1fr); }
+    .aesthetic-card-featured,
+    .therapy-more { grid-column: auto; max-width: none; }
+    .aesthetic-photo,
+    .therapy-page-photo { height: auto; aspect-ratio: 4 / 3; }
+    .aesthetic-services .section-center,
+    .therapy-page-services .section-center { padding-bottom: 48px; }
+    .clinic-collage { height: 450px; }
+    .photo-reception { left: 0; top: 12px; width: 72%; height: 230px; }
+    .photo-room { width: 50%; height: 200px; top: 130px; right: 0; }
+    .photo-detail { width: 76%; height: 180px; left: 8%; bottom: 44px; }
+    .collage-toggle { right: 0; min-height: 44px; }
+    .review-card { padding: 20px; }
+    .review-head { gap: 10px; }
+    .review-head span { flex: 0 0 44px; width: 44px; height: 44px; }
+    .google-rating { gap: 16px; }
+    .google-rating em { font-size: 36px; }
+    .footer-main nav { gap: 8px 24px; }
+    .preloader-brand { gap: 12px; }
+    .preloader-brand img { width: 52px; height: 52px; }
+    .preloader-brand strong { font-size: 26px; letter-spacing: 8px; }
+    .preloader-brand small { font-size: 8px; letter-spacing: 2px; }
+    .preloader-skip { right: 20px; bottom: 20px; min-height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .menu-toggle span { transition: none; }
 }

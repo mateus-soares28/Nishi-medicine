@@ -5,7 +5,7 @@ const preloaderVideo = preloader?.querySelector("video");
 const preloaderSkip = preloader?.querySelector(".preloader-skip");
 const preloaderDuration = 4400;
 
-document.body.classList.add("is-loading");
+if (preloader) document.body.classList.add("is-loading");
 
 const finishPreloader = () => {
     if (!preloader || preloader.classList.contains("is-finished")) return;
@@ -27,15 +27,45 @@ window.setTimeout(finishPreloader, preloaderDuration);
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 
-menuToggle?.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("open");
+const setMenuOpen = (isOpen, restoreFocus = false) => {
+    if (!menuToggle || !mainNav) return;
+    mainNav.classList.toggle("open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    if (restoreFocus) menuToggle.focus({ preventScroll: true });
+};
+
+menuToggle?.addEventListener("click", () => {
+    setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+});
+
+mainNav?.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setMenuOpen(false, true);
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mainNav?.classList.contains("open")) {
+        setMenuOpen(false, true);
+    }
+});
+
+document.addEventListener("click", (event) => {
+    if (!mainNav?.contains(event.target) && !menuToggle?.contains(event.target)) {
+        setMenuOpen(false);
+    }
+});
+
+document.addEventListener("focusin", (event) => {
+    if (!mainNav?.contains(event.target) && !menuToggle?.contains(event.target)) {
+        setMenuOpen(false);
+    }
 });
 
 const getHeaderHeight = () => document.querySelector(".site-header")?.offsetHeight || 0;
 
 const scrollToSection = (target, behavior = "smooth") => {
     const top = target.getBoundingClientRect().top + window.scrollY - getHeaderHeight();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) behavior = "auto";
     window.scrollTo({ top, behavior });
 };
 
@@ -45,8 +75,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
         if (!target) return;
 
         event.preventDefault();
-        mainNav?.classList.remove("open");
-        menuToggle?.setAttribute("aria-expanded", "false");
+        setMenuOpen(false);
         history.pushState(null, "", link.getAttribute("href"));
         scrollToSection(target);
     });
@@ -60,10 +89,12 @@ window.addEventListener("load", () => {
 
 const navLinks = document.querySelectorAll(".main-nav a");
 const sections = [...navLinks]
+    .filter((link) => link.getAttribute("href")?.startsWith("#"))
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
 
 const setActiveLink = () => {
+    if (!sections.length) return;
     const marker = getHeaderHeight() + 80;
     const current = sections.reduce((active, section) => {
         const top = section.getBoundingClientRect().top;

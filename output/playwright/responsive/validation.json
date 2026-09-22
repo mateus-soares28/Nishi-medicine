@@ -1,0 +1,491 @@
+{
+  "results": [
+    {
+      "file": "index.html",
+      "width": 320,
+      "height": 640,
+      "viewport": 305,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 360,
+      "height": 800,
+      "viewport": 345,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "height": 844,
+      "viewport": 375,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 430,
+      "height": 932,
+      "viewport": 415,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 599,
+      "height": 900,
+      "viewport": 584,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 600,
+      "height": 960,
+      "viewport": 585,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 760,
+      "height": 1024,
+      "viewport": 745,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 768,
+      "height": 1024,
+      "viewport": 753,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 820,
+      "height": 1180,
+      "viewport": 820,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1024,
+      "height": 768,
+      "viewport": 1009,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1120,
+      "height": 800,
+      "viewport": 1105,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1121,
+      "height": 800,
+      "viewport": 1106,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1280,
+      "height": 800,
+      "viewport": 1265,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1366,
+      "height": 768,
+      "viewport": 1351,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "height": 900,
+      "viewport": 1440,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1512,
+      "height": 982,
+      "viewport": 1497,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 1920,
+      "height": 1080,
+      "viewport": 1905,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "index.html",
+      "width": 844,
+      "height": 390,
+      "viewport": 829,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 320,
+      "height": 640,
+      "viewport": 305,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 360,
+      "height": 800,
+      "viewport": 345,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 390,
+      "height": 844,
+      "viewport": 375,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 430,
+      "height": 932,
+      "viewport": 415,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 599,
+      "height": 900,
+      "viewport": 584,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 600,
+      "height": 960,
+      "viewport": 585,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 760,
+      "height": 1024,
+      "viewport": 745,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 768,
+      "height": 1024,
+      "viewport": 753,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 820,
+      "height": 1180,
+      "viewport": 820,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1024,
+      "height": 768,
+      "viewport": 1009,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1120,
+      "height": 800,
+      "viewport": 1105,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1121,
+      "height": 800,
+      "viewport": 1106,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1280,
+      "height": 800,
+      "viewport": 1265,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1366,
+      "height": 768,
+      "viewport": 1351,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1440,
+      "height": 900,
+      "viewport": 1440,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1512,
+      "height": 982,
+      "viewport": 1497,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 1920,
+      "height": 1080,
+      "viewport": 1905,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "estetica.html",
+      "width": 844,
+      "height": 390,
+      "viewport": 829,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 320,
+      "height": 640,
+      "viewport": 305,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 360,
+      "height": 800,
+      "viewport": 345,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 390,
+      "height": 844,
+      "viewport": 375,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 430,
+      "height": 932,
+      "viewport": 415,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 599,
+      "height": 900,
+      "viewport": 584,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 600,
+      "height": 960,
+      "viewport": 585,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 760,
+      "height": 1024,
+      "viewport": 745,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 768,
+      "height": 1024,
+      "viewport": 753,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 820,
+      "height": 1180,
+      "viewport": 805,
+      "overflow": 0,
+      "bad": [],
+      "fonts": false
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1024,
+      "height": 768,
+      "viewport": 1009,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1120,
+      "height": 800,
+      "viewport": 1105,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1121,
+      "height": 800,
+      "viewport": 1106,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1280,
+      "height": 800,
+      "viewport": 1265,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1366,
+      "height": 768,
+      "viewport": 1351,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1440,
+      "height": 900,
+      "viewport": 1440,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1512,
+      "height": 982,
+      "viewport": 1497,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 1920,
+      "height": 1080,
+      "viewport": 1905,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    },
+    {
+      "file": "tratamentos.html",
+      "width": 844,
+      "height": 390,
+      "viewport": 829,
+      "overflow": 0,
+      "bad": [],
+      "fonts": true
+    }
+  ],
+  "errors": []
+}
