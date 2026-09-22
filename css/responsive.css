@@ -197,6 +197,13 @@
 }
 
 @media (max-width: 760px) {
+    .section-cream,
+    .section-bg {
+        background-size: 100% 100%, 100% auto;
+        background-position: center, center bottom;
+        background-repeat: no-repeat;
+    }
+
     .container {
         width: min(100% - 32px, 560px);
     }
