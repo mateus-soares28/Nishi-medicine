@@ -20,6 +20,21 @@ html {
   overflow-x: clip;
 }
 
+/* Fixed controls remain outside the content transformed by ScrollSmoother. */
+html.has-scroll-animations {
+  scroll-behavior: auto;
+}
+.has-smooth-scroll .site-header {
+  position: fixed;
+  inset: 0 0 auto;
+}
+.has-smooth-scroll #smooth-content {
+  padding-top: var(--header-height);
+}
+#smooth-content {
+  display: flow-root;
+}
+
 
 body {
   margin: 0;

@@ -1,4 +1,4 @@
-const whatsappNumber = "554730251234";
+const whatsappNumber = "5547991197855";
 
 const preloader = document.querySelector("#preloader");
 const preloaderVideo = preloader?.querySelector("video");
@@ -13,6 +13,7 @@ const finishPreloader = () => {
     preloader.classList.add("is-finished");
     document.body.classList.remove("is-loading");
     preloaderVideo?.pause();
+    document.dispatchEvent(new Event("nishi:ready"));
     window.setTimeout(() => preloader.remove(), 760);
 };
 
@@ -70,9 +71,14 @@ document.addEventListener("focusin", (event) => {
 const getHeaderHeight = () => document.querySelector(".site-header")?.offsetHeight || 0;
 
 const scrollToSection = (target, behavior = "smooth") => {
-    const top = target.getBoundingClientRect().top + window.scrollY - getHeaderHeight();
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) behavior = "auto";
-    window.scrollTo({ top, behavior });
+    const smoother = window.ScrollSmoother?.get();
+    if (smoother) {
+        smoother.scrollTo(target, behavior === "smooth", `top ${getHeaderHeight()}px`);
+        return;
+    }
+    const top = target.getBoundingClientRect().top + window.scrollY - getHeaderHeight();
+    window.scrollTo({ top, behavior: behavior === "auto" ? "instant" : behavior });
 };
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -113,6 +119,7 @@ const setActiveLink = () => {
 };
 
 window.addEventListener("scroll", setActiveLink, { passive: true });
+document.addEventListener("nishi:scroll-update", setActiveLink);
 setActiveLink();
 
 let reviewIndex = 0;
