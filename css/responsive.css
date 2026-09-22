@@ -1,0 +1,393 @@
+@media (max-width: 1360px) {
+    .container {
+        width: min(100% - 72px, 1180px);
+    }
+
+    .header-inner {
+        gap: 26px;
+    }
+
+    .main-nav {
+        gap: 28px;
+    }
+
+    .brand-mark {
+        width: 68px;
+        height: 68px;
+        font-size: 44px;
+    }
+
+    .brand-text strong {
+        font-size: 30px;
+        letter-spacing: 12px;
+    }
+
+    .brand-text small {
+        font-size: 12px;
+        letter-spacing: 6px;
+    }
+
+    .enso-large {
+        width: min(92%, 600px);
+        height: min(92%, 600px);
+    }
+
+    .treatments-grid,
+    .clinic-grid,
+    .team-grid,
+    .reviews-grid,
+    .contact-grid {
+        gap: 46px;
+    }
+
+    .doctor-list {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 1120px) {
+    :root {
+        --header-height: 92px;
+    }
+
+    .header-inner {
+        min-height: var(--header-height);
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .main-nav {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: var(--header-height);
+        display: none;
+        padding: 18px 36px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        background: var(--navy);
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .header-cta {
+        display: none;
+    }
+
+    .hero,
+    .treatments,
+    .clinic,
+    .team,
+    .reviews,
+    .contact {
+        height: auto;
+        max-height: none;
+        min-height: auto;
+        display: block;
+        overflow: visible;
+    }
+
+    .hero-grid {
+        height: auto;
+        max-height: none;
+        min-height: auto;
+    }
+
+    .hero-grid,
+    .clinic-grid,
+    .contact-grid,
+    .team-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        padding-top: 46px;
+        padding-bottom: 0;
+    }
+
+    .hero-visual {
+        min-height: 520px;
+    }
+
+    .hero-visual::before,
+    .dot {
+        display: none;
+    }
+
+    .hero-visual img {
+        width: min(62vw, 520px);
+        margin-bottom: 0;
+        transform: scale(1.02);
+    }
+
+    .treatments-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 34px;
+    }
+
+    .therapy-more {
+        grid-column: 1 / -1;
+        max-width: 560px;
+        margin-inline: auto;
+        width: 100%;
+    }
+
+    .team-grid,
+    .reviews-grid {
+        align-items: start;
+    }
+
+    .team-intro h2,
+    .contact h2 {
+        max-width: none;
+    }
+
+    .review-track {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        min-height: auto;
+    }
+
+    .footer-main {
+        flex-wrap: wrap;
+    }
+
+    .footer-main nav {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .footer-line {
+        width: min(100% - 72px, 900px);
+        letter-spacing: 5px;
+    }
+}
+
+@media (max-width: 560px) {
+    .preloader-brand img {
+        width: 66px;
+        height: 66px;
+    }
+    .preloader-brand {
+        gap: 13px;
+    }
+    .preloader-brand strong {
+        font-size: 27px;
+        letter-spacing: 8px;
+    }
+    .preloader-brand small {
+        font-size: 8px;
+        letter-spacing: 3.5px;
+    }
+    .preloader-skip {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 760px) {
+    .container {
+        width: min(100% - 32px, 560px);
+    }
+
+    .site-header {
+        position: sticky;
+    }
+
+    .brand {
+        gap: 12px;
+    }
+
+    .brand-mark {
+        width: 52px;
+        height: 52px;
+        font-size: 34px;
+    }
+
+    .brand-text {
+        gap: 4px;
+    }
+
+    .brand-text strong {
+        font-size: 22px;
+        letter-spacing: 8px;
+    }
+
+    .brand-text small {
+        font-size: 9px;
+        letter-spacing: 4px;
+    }
+
+    .hero-grid,
+    .section-center,
+    .clinic-grid,
+    .team-grid,
+    .reviews-grid,
+    .contact-grid {
+        padding: 52px 0;
+    }
+
+    h1,
+    h2 {
+        font-size: clamp(48px, 14vw, 68px);
+        line-height: .95;
+    }
+
+    .lead,
+    .section-text,
+    .section-subtitle {
+        font-size: 18px;
+        line-height: 1.55;
+    }
+
+    .lead {
+        margin: 32px 0 36px;
+    }
+
+    .eyebrow {
+        gap: 14px;
+        margin-bottom: 18px;
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .eyebrow span {
+        width: 44px;
+    }
+
+    .actions,
+    .footer-main,
+    .footer-main nav {
+        gap: 16px;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 52px;
+        padding: 0 22px;
+        font-size: 14px;
+    }
+
+    .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .whatsapp-float img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .hero-visual {
+        min-height: 360px;
+    }
+
+    .hero-visual img {
+        width: min(70vw, 320px);
+        transform: scale(1);
+    }
+
+    .enso-large {
+        width: 360px;
+        height: 360px;
+        right: 50%;
+        transform: translateX(50%) rotate(-28deg);
+    }
+
+    .enso-soft {
+        width: 260px;
+        height: 330px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .treatments-grid,
+    .doctor-list,
+    .features,
+    .contact-items,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .therapy-info h3 {
+        display: block;
+        margin: 18px 0 0;
+        font-size: 32px;
+    }
+
+    .therapy-more {
+        min-height: 330px;
+        padding: 42px 24px;
+    }
+
+    .clinic-collage {
+        height: 560px;
+        min-height: 0;
+        margin-top: -20px;
+    }
+
+    .photo-reception {
+        left: 0;
+        width: 72%;
+        height: 270px;
+    }
+
+    .photo-room {
+        width: 50%;
+        height: 230px;
+        top: 190px;
+    }
+
+    .photo-detail {
+        width: 76%;
+        height: 220px;
+        left: 10%;
+        bottom: 20px;
+    }
+
+    .collage-toggle {
+        right: 5%;
+        bottom: 0;
+    }
+
+    .doctor-card {
+        min-height: auto;
+    }
+
+    .doctor-photo {
+        height: 300px;
+    }
+
+    .review-area {
+        overflow: hidden;
+    }
+
+    .contact-form {
+        padding: 34px 18px;
+    }
+
+    .site-footer .brand,
+    .footer-main .btn {
+        width: 100%;
+    }
+
+    .footer-line {
+        width: min(100% - 32px, 520px);
+        gap: 12px;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+}
