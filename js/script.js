@@ -3,7 +3,7 @@ const whatsappNumber = "5547991197855";
 const preloader = document.querySelector("#preloader");
 const preloaderVideo = preloader?.querySelector("video");
 const preloaderSkip = preloader?.querySelector(".preloader-skip");
-const preloaderDuration = 4400;
+const preloaderDuration = 2000;
 
 if (preloader) document.body.classList.add("is-loading");
 
@@ -24,6 +24,78 @@ preloaderVideo?.addEventListener("loadeddata", () => {
 
 preloaderSkip?.addEventListener("click", finishPreloader);
 window.setTimeout(finishPreloader, preloaderDuration);
+
+// Fundos decorativos carregam apenas no celular e nas seções visíveis.
+(() => {
+    const mobile = window.matchMedia("(max-width: 760px)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const backgrounds = new Map();
+    const source = new URL("../assets/img/video-nuvens.mp4", document.currentScript.src).href;
+
+    const updatePlayback = ({ video, visible }) => {
+        if (visible && !document.hidden && !reducedMotion.matches) {
+            video.play().catch(() => {});
+        } else {
+            video.pause();
+        }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+            const background = backgrounds.get(target);
+            if (!background) return;
+            background.visible = isIntersecting;
+            if (isIntersecting && !background.video.hasAttribute("src")) {
+                background.video.src = source;
+            }
+            updatePlayback(background);
+        });
+    });
+
+    const syncBackgrounds = () => {
+        if (!mobile.matches) {
+            observer.disconnect();
+            backgrounds.forEach(({ layer, video }, section) => {
+                video.pause();
+                video.removeAttribute("src");
+                video.load();
+                layer.remove();
+                section.classList.remove("has-mobile-clouds");
+            });
+            backgrounds.clear();
+            return;
+        }
+
+        document.querySelectorAll("main > section").forEach((section) => {
+            if (backgrounds.has(section)) return;
+            const layer = document.createElement("div");
+            layer.className = "mobile-clouds";
+            layer.setAttribute("aria-hidden", "true");
+            const video = document.createElement("video");
+            video.autoplay = true;
+            video.loop = true;
+            video.muted = true;
+            video.defaultMuted = true;
+            video.playsInline = true;
+            video.preload = "none";
+            video.tabIndex = -1;
+            video.setAttribute("muted", "");
+            video.setAttribute("playsinline", "");
+            const background = { layer, video, visible: false };
+            video.addEventListener("loadeddata", () => updatePlayback(background));
+            layer.append(video);
+            section.prepend(layer);
+            section.classList.add("has-mobile-clouds");
+            backgrounds.set(section, background);
+            observer.observe(section);
+        });
+    };
+
+    mobile.addEventListener("change", syncBackgrounds);
+    reducedMotion.addEventListener("change", () => backgrounds.forEach(updatePlayback));
+    document.addEventListener("visibilitychange", () => backgrounds.forEach(updatePlayback));
+    syncBackgrounds();
+})();
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
@@ -150,28 +222,59 @@ document.querySelectorAll(".slider-btn").forEach((button) => {
 
 paintReviews();
 
-const clinicImages = [
-    "./assets/img/clinica1.webp",
-    "./assets/img/clinica2.webp",
-    "./assets/img/clinica3.webp",
-    "./assets/img/clinica4.webp",
-    "./assets/img/clinica5.webp"
+const clinicMedia = [
+    { type: "image", src: "./assets/img/clinica1.jpg", alt: "Recepção da Nishi Medicina Oriental" },
+    { type: "image", src: "./assets/img/clinica2.jpg", alt: "Área externa da clínica Nishi" },
+    { type: "image", src: "./assets/img/clinica3.jpg", alt: "Sala de atendimento da Nishi Medicina Oriental" },
+    { type: "image", src: "./assets/img/clinica4.jpg", alt: "Detalhes do ambiente da clínica Nishi" },
+    { type: "video", src: "./assets/img/clinicavideo.mp4", poster: "./assets/img/clinica4.jpg", label: "Vídeo dos ambientes da clínica Nishi" }
 ];
 const collagePhotos = [...document.querySelectorAll(".clinic-photo")];
 const collageToggle = document.querySelector(".collage-toggle");
 let collageIndex = 0;
 
+const createClinicMedia = (item) => {
+    if (item.type === "video") {
+        const video = document.createElement("video");
+        video.src = item.src;
+        video.poster = item.poster;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.preload = "metadata";
+        video.playsInline = true;
+        video.setAttribute("muted", "");
+        video.setAttribute("aria-label", item.label);
+        video.addEventListener("canplay", () => video.play().catch(() => {}), { once: true });
+        return video;
+    }
+
+    const image = document.createElement("img");
+    image.src = item.src;
+    image.alt = item.alt;
+    image.decoding = "async";
+    return image;
+};
+
 collageToggle?.addEventListener("click", () => {
-    collageIndex = (collageIndex + 3) % clinicImages.length;
+    collageIndex = (collageIndex + collagePhotos.length) % clinicMedia.length;
+    collageToggle.disabled = true;
 
     collagePhotos.forEach((photo, index) => {
-        const image = photo.querySelector("img");
+        photo.querySelector("video")?.pause();
         photo.classList.add("is-changing");
         window.setTimeout(() => {
-            image.src = clinicImages[(collageIndex + index) % clinicImages.length];
+            const item = clinicMedia[(collageIndex + index) % clinicMedia.length];
+            photo.replaceChildren(createClinicMedia(item));
             photo.classList.remove("is-changing");
         }, 140);
     });
+
+    window.setTimeout(() => {
+        collageToggle.disabled = false;
+        collageToggle.setAttribute("aria-label", "Mostrar próxima seleção de imagens e vídeo da clínica");
+    }, 220);
 });
 
 const form = document.querySelector("#whatsappForm");
