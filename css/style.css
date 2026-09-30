@@ -24,6 +24,13 @@ html {
 html.has-scroll-animations {
   scroll-behavior: auto;
 }
+.has-scroll-animations #smooth-content {
+  overflow-x: clip;
+}
+/* GSAP controla o movimento; as transições de cor dos botões continuam ativas. */
+.has-scroll-animations .scroll-reveal-target {
+  transition-property: color, background-color, border-color, box-shadow;
+}
 .has-smooth-scroll .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -408,15 +415,7 @@ h1, h2, h3, p, small, .btn {
 .section-cream,
 .section-bg {
   background-color: var(--cream-2);
-  background-image:
-    linear-gradient(rgba(255, 250, 240, 0.76), rgba(255, 250, 240, 0.8)),
-    url("");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.section-bg {
-  background-attachment: scroll;
+  background-image: none;
 }
 .hero,
 .treatments,
@@ -443,14 +442,27 @@ h1, h2, h3, p, small, .btn {
   position: absolute;
   inset: 0 auto 0 0;
   z-index: 0;
-  display: block;
-  width: 50%;
+  display: none;
+  width: 58%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  opacity: 0.38;
-  -webkit-mask-image: linear-gradient(to right, #000 75%, transparent 100%);
-  mask-image: linear-gradient(to right, #000 75%, transparent 100%);
+  object-position: left center;
+  opacity: 0.12;
+  -webkit-mask-image: linear-gradient(to right, #000 55%, transparent);
+  mask-image: linear-gradient(to right, #000 55%, transparent);
+  pointer-events: none;
+}
+.hero-video-playing .hero-video {
+  display: block;
+}
+.hero-castle {
+  position: absolute;
+  z-index: 1;
+  right: -2%;
+  bottom: -3%;
+  width: clamp(180px, 21vw, 360px);
+  height: auto;
+  opacity: .028;
   pointer-events: none;
 }
 .hero-grid {
@@ -523,6 +535,22 @@ h2 {
   min-height: min(720px, calc(100svh - 196px));
   overflow: hidden;
 }
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: clamp(118px, 13%, 116px);
+  width: min(38%, 310px);
+  height: clamp(28px, 8%, 64px);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center, rgba(236, 146, 43, .16) 0%, rgba(216, 170, 118, 0.15) 46%, rgba(214, 161, 99, 0) 72%),
+    radial-gradient(ellipse at center, rgba(17, 43, 58, 0.08) 0%, rgba(17, 43, 58, 0) 68%);
+  filter: blur(1px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
 .hero-visual img {
   position: relative;
   z-index: 2;
@@ -532,8 +560,8 @@ h2 {
   transform: translateY(12%) scale(1.42);
   transform-origin: center bottom;
   filter: drop-shadow(0 26px 22px rgba(17, 43, 58, 0.1));
-  -webkit-mask-image: linear-gradient(to bottom, #000 68%, rgba(0, 0, 0, 0.94) 72%, rgba(0, 0, 0, 0.42) 78%, transparent 84%);
-  mask-image: linear-gradient(to bottom, #000 68%, rgba(0, 0, 0, 0.94) 72%, rgba(0, 0, 0, 0.42) 78%, transparent 84%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 67%, rgba(0, 0, 0, 0.94) 71%, rgba(0, 0, 0, 0.34) 76%, transparent 81%);
+  mask-image: linear-gradient(to bottom, #000 67%, rgba(0, 0, 0, 0.94) 71%, rgba(0, 0, 0, 0.34) 76%, transparent 81%);
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
@@ -546,14 +574,16 @@ h2 {
 }
 .enso-large {
   inset: 10px 0 auto auto;
-  width: min(92%, 690px);
+  z-index: 3;
+  width: min(93%, 690px);
   height: min(92%, 690px);
   border: 3px solid rgba(214, 161, 99, 0.52);
   border-left-color: transparent;
   transform: rotate(-28deg);
 }
 .enso-soft {
-  width: 520px;
+  z-index: 0;
+  width: 530px;
   height: 650px;
   right: 115px;
   bottom: 4px;

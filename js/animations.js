@@ -1,7 +1,7 @@
 (() => {
-    const { gsap, ScrollTrigger, ScrollSmoother, SplitText } = window;
+    const { gsap, ScrollTrigger, ScrollSmoother } = window;
     // Sem os plugins, o conteúdo permanece visível e a rolagem continua nativa.
-    if (!gsap || !ScrollTrigger || !ScrollSmoother || !SplitText) return;
+    if (!gsap || !ScrollTrigger) return;
 
     // Ajuste aqui a região da tela em que os elementos aparecem.
     // Também aceita data-reveal-start e data-reveal-end em um elemento específico.
@@ -10,12 +10,13 @@
         end: "clamp(top 60%)",
         scrub: true,
         smooth: 1,
-        wordStagger: 0.6,
-        entranceDuration: 1,
+        entranceDuration: 0.8,
+        edgeOffset: 32,
         markers: false
     };
 
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+    gsap.registerPlugin(ScrollTrigger);
+    if (ScrollSmoother) gsap.registerPlugin(ScrollSmoother);
 
     const opening = document.querySelector("#preloader");
     const pageReady = !opening || opening.classList.contains("is-finished")
@@ -34,11 +35,10 @@
 
             document.documentElement.classList.add("has-scroll-animations");
             const events = new AbortController();
-            const splits = [];
             let smoother;
             const refresh = gsap.delayedCall(0.15, () => ScrollTrigger.refresh()).pause();
 
-            if (context.conditions.desktop) {
+            if (context.conditions.desktop && ScrollSmoother) {
                 document.documentElement.classList.add("has-smooth-scroll");
                 smoother = ScrollSmoother.create({
                     wrapper: "#smooth-wrapper",
@@ -50,27 +50,54 @@
                 });
             }
 
-            const titles = [...document.querySelectorAll("main :is(h1, h2, h3, h4, h5, h6)")];
-            // Fotos de conteúdo, inclusive as que usam background-image.
-            // Logos fixos e ícones de ações ficam sempre visíveis.
-            const images = [...document.querySelectorAll(
-                "main img:not(.whatsapp-button-icon), main .oval-photo, main .doctor-photo, .site-footer .brand-mark img"
-            )];
-            const initiallyVisible = new Set([...titles, ...images].filter((element) => {
-                const rect = element.getBoundingClientRect();
-                const top = smoother ? smoother.offset(element, "top top") : rect.top + window.scrollY;
-                return top < window.innerHeight * 0.9;
-            }));
+            // Cartões e molduras entram inteiros para não recortar suas imagens.
+            // Descendentes não recebem uma segunda animação sobre a do pai.
+            const selector = [
+                "h1", "h2", "h3", "h4", "h5", "h6", "p", "a", "strong", "small",
+                "b", "em", "address", "img:not(.whatsapp-button-icon)",
+                ".actions", ".process-step", ".therapy-card", ".therapy-more",
+                ".therapy-page-card", ".clinic-photo", ".impact-item figure",
+                ".oval-photo", ".doctor-photo", ".feature", ".google-rating",
+                ".review-card", ".contact-form", ".map-frame", ".brand", ".footer-line"
+            ].join(", ");
+            const targets = [...document.querySelectorAll("main > section, .site-footer")]
+                .flatMap((section) => [...section.querySelectorAll(selector)]
+                    .filter((element) => !element.parentElement.closest(selector)));
 
-            const reveal = (target, element, stagger = 0) => {
-                const entrance = initiallyVisible.has(element);
-                // Garante que palavras ainda não iniciadas pelo stagger também fiquem ocultas.
-                gsap.set(target, { opacity: 0 });
-                return gsap.fromTo(target, { opacity: 0 }, {
-                    opacity: 1,
+            // Mede o layout antes de aplicar qualquer deslocamento.
+            const entries = targets.map((element, index) => {
+                const rect = element.getBoundingClientRect();
+                const center = rect.left + rect.width / 2;
+                const centered = Math.abs(center - window.innerWidth / 2) < window.innerWidth * 0.1;
+                const direction = element.dataset.revealFrom || (centered
+                    ? (index % 2 === 0 ? "left" : "right")
+                    : (center < window.innerWidth / 2 ? "left" : "right"));
+                return {
+                    element,
+                    direction,
+                    entrance: rect.top < window.innerHeight * 0.9 && rect.bottom > 0,
+                    x: Number(gsap.getProperty(element, "x")) || 0,
+                    opacity: Number(gsap.getProperty(element, "opacity"))
+                };
+            });
+
+            entries.forEach(({ element, direction, entrance, x, opacity }) => {
+                element.classList.add("scroll-reveal-target");
+                const fromX = () => {
+                    const rect = element.getBoundingClientRect();
+                    const currentX = Number(gsap.getProperty(element, "x")) || 0;
+                    // Desconta a transformação atual para recalcular também no resize.
+                    const left = rect.left - currentX + x;
+                    return x + (direction === "left"
+                        ? -(left + rect.width + settings.edgeOffset)
+                        : window.innerWidth - left + settings.edgeOffset);
+                };
+                const tween = gsap.fromTo(element, { x: fromX, opacity: 0 }, {
+                    x,
+                    opacity,
                     duration: entrance ? settings.entranceDuration : 1,
-                    stagger: { amount: stagger },
-                    ease: entrance ? "power1.out" : "none",
+                    ease: "power2.out",
+                    clearProps: "transform,opacity",
                     // A primeira dobra aparece sem exigir que o visitante role.
                     // As demais animações avançam e retrocedem junto com o scroll.
                     ...(entrance ? {} : {
@@ -84,22 +111,13 @@
                         }
                     })
                 });
-            };
-
-            titles.forEach((title) => {
-                splits.push(SplitText.create(title, {
-                    type: "lines,words",
-                    wordsClass: "reveal-word",
-                    linesClass: "reveal-line",
-                    autoSplit: true,
-                    aria: "auto",
-                    onSplit: (split) => {
-                        refresh.restart(true);
-                        return reveal(split.words, title, settings.wordStagger);
-                    }
-                }));
+                // Foco por teclado revela imediatamente links e campos acessados.
+                element.addEventListener("focusin", () => {
+                    tween.scrollTrigger?.kill(false);
+                    tween.kill();
+                    gsap.set(element, { clearProps: "transform,opacity" });
+                }, { signal: events.signal });
             });
-            images.forEach((image) => reveal(image, image));
 
             document.querySelectorAll("#smooth-content img").forEach((image) => {
                 image.addEventListener("load", () => refresh.restart(true), { signal: events.signal });
@@ -116,7 +134,7 @@
             return () => {
                 events.abort();
                 refresh.kill();
-                splits.forEach((split) => split.revert());
+                targets.forEach((element) => element.classList.remove("scroll-reveal-target"));
                 smoother?.kill();
                 document.documentElement.classList.remove("has-smooth-scroll");
                 document.documentElement.classList.remove("has-scroll-animations");

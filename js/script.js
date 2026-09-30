@@ -25,7 +25,45 @@ preloaderVideo?.addEventListener("loadeddata", () => {
 preloaderSkip?.addEventListener("click", finishPreloader);
 window.setTimeout(finishPreloader, preloaderDuration);
 
-// Fundos decorativos carregam apenas no celular e nas seções visíveis.
+(() => {
+    const hero = document.querySelector(".hero");
+    const video = hero?.querySelector(".hero-video");
+    if (!video) return;
+
+    const desktopOrTablet = window.matchMedia("(min-width: 761px)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let visible = true;
+
+    const showFallback = () => hero.classList.remove("hero-video-playing");
+    const updatePlayback = () => {
+        if (desktopOrTablet.matches && !reducedMotion.matches && visible && !document.hidden) {
+            video.play().catch(showFallback);
+        } else {
+            video.pause();
+            showFallback();
+        }
+    };
+
+    video.playbackRate = 0.6;
+    video.addEventListener("loadedmetadata", () => { video.playbackRate = 0.6; });
+    video.addEventListener("playing", () => {
+        if (desktopOrTablet.matches && !reducedMotion.matches) hero.classList.add("hero-video-playing");
+    });
+    ["pause", "waiting", "stalled", "error", "emptied"].forEach((event) => {
+        video.addEventListener(event, showFallback);
+    });
+
+    new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        updatePlayback();
+    }).observe(hero);
+    desktopOrTablet.addEventListener("change", updatePlayback);
+    reducedMotion.addEventListener("change", updatePlayback);
+    document.addEventListener("visibilitychange", updatePlayback);
+    updatePlayback();
+})();
+
+// Nuvens apenas no celular; cada vídeo carrega ao entrar na área visível.
 (() => {
     const mobile = window.matchMedia("(max-width: 760px)");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -53,7 +91,7 @@ window.setTimeout(finishPreloader, preloaderDuration);
     });
 
     const syncBackgrounds = () => {
-        if (!mobile.matches) {
+        if (!mobile.matches || reducedMotion.matches) {
             observer.disconnect();
             backgrounds.forEach(({ layer, video }, section) => {
                 video.pause();
@@ -72,7 +110,6 @@ window.setTimeout(finishPreloader, preloaderDuration);
             layer.className = "mobile-clouds";
             layer.setAttribute("aria-hidden", "true");
             const video = document.createElement("video");
-            video.autoplay = true;
             video.loop = true;
             video.muted = true;
             video.defaultMuted = true;
@@ -82,7 +119,6 @@ window.setTimeout(finishPreloader, preloaderDuration);
             video.setAttribute("muted", "");
             video.setAttribute("playsinline", "");
             const background = { layer, video, visible: false };
-            video.addEventListener("loadeddata", () => updatePlayback(background));
             layer.append(video);
             section.prepend(layer);
             section.classList.add("has-mobile-clouds");
@@ -92,7 +128,7 @@ window.setTimeout(finishPreloader, preloaderDuration);
     };
 
     mobile.addEventListener("change", syncBackgrounds);
-    reducedMotion.addEventListener("change", () => backgrounds.forEach(updatePlayback));
+    reducedMotion.addEventListener("change", syncBackgrounds);
     document.addEventListener("visibilitychange", () => backgrounds.forEach(updatePlayback));
     syncBackgrounds();
 })();

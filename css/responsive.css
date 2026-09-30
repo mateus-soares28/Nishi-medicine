@@ -194,6 +194,7 @@
 }
 
 @media (max-width: 760px) {
+    .hero .hero-video { display: none; }
     main > .has-mobile-clouds {
         position: relative;
         isolation: isolate;
@@ -404,4 +405,5 @@
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .menu-toggle span { transition: none; }
+    .hero-video { display: none; }
 }
